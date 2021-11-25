@@ -3,6 +3,7 @@ import CountryComp from "../Comps/CountryComp";
 import NextButton from "../Comps/NextButton";
 import { useState, useEffect, useMemo } from "react";
 import BackButton from "../Comps/BackButton";
+import Hint from "./Hint.js";
 
 
 
@@ -38,10 +39,13 @@ const GetQuizCountry = ({countries , index}) => {
         setCountry(newCountries[index])
     }, [])
 
+    let hintNumber = 0
+
     const increaseIndex = () => {
         if (index < 19){
             index++
             setCountry(newCountries[index])
+            hintNumber = 0
             console.log(index)
         }
     }
@@ -50,6 +54,29 @@ const GetQuizCountry = ({countries , index}) => {
         if (index > 0 ){
             index --
             setCountry(newCountries[index])
+            hintNumber = 0
+        }
+    }
+
+    const getHint = (hintNumber) => {
+        if (hintNumber === 0){
+            HintZero = true
+            HintOne = false
+            HintTwo = false
+        }else if(hintNumber===1){
+            HintZero = true
+            HintOne = true
+            HintTwo = false
+        }else{
+            HintZero = true
+            HintOne = true
+            HintTwo = true
+        }
+    }
+
+    const increaseHint = ()=>{
+        if (hintNumber <2 ){
+            hintNumber++ 
         }
     }
 
@@ -60,6 +87,7 @@ const GetQuizCountry = ({countries , index}) => {
         <Card country={country} />
         <NextButton onClick={increaseIndex}/>
         <BackButton onClick={decreaseIndex}/>
+        <Hint onClick={increaseHint}/>
         </>
 
         :
