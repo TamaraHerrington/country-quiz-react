@@ -2,6 +2,7 @@ import Card from "../Comps/Card";
 //import CountryComp from "../Comps/CountryComp";
 import NextButton from "../Comps/NextButton";
 import { useState, useEffect, useMemo } from "react";
+import BackButton from "../Comps/BackButton";
 
 
 
@@ -33,7 +34,7 @@ const GetQuizCountry = ({countries}) => {
     // const initialState = newCountries[0];
     
     const[country, setCountry] = useState(countries[0]);
-    console.log(countries)
+    //console.log(countries)
 
     useEffect(()=>{
         setCountry(countries[index])
@@ -45,11 +46,25 @@ const GetQuizCountry = ({countries}) => {
             setCountry(countries[index])
             console.log(index)
         }
+        else{
+            alert("Can't go forward from last q")
+        }
+    }
+
+    const decreaseIndex = () => {
+        if (index > 0){
+            setIndex(index-1)
+            setCountry(countries[index])
+            console.log(index)
+        }
+        else {
+            alert("Can't go back from q1")
+        }
     }
 
     const [index, setIndex] = useState(0);
     useEffect(() => {
-        setIndex(index+1);
+        setIndex(index);
     }, [])
 
     return (
@@ -57,6 +72,7 @@ const GetQuizCountry = ({countries}) => {
         <>
         <Card country={country} />
         <NextButton onClick={increaseIndex}/>
+        <BackButton onClick={decreaseIndex} />
         </>
         
         :
