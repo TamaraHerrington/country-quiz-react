@@ -16,22 +16,23 @@ const CountryContainer = () => {
 
     }, []);
 
-    let index = 0;
+
+
     //let country = countries[0]
-    const increaseIndex = () => {
-        if (index < 19){
-            index++
-            //country = countries[index]
-            console.log(index)
+    // const increaseIndex = () => {
+    //     if (index < 19){
+    //         index++
+    //         //country = countries[index]
+    //         console.log(index)
             
-        }
-    }
+    //     }
+    // }
 
     return (
         countries ?
         <>
-        <GetQuizCountry countries={countries} index={index}/>
-        <NextButton onClick={increaseIndex} />
+        <GetQuizCountry countries={countries}/>
+        {/* <NextButton onClick={increaseIndex} /> */}
         </>
         :
         <p>loading...</p>

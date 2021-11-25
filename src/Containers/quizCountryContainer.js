@@ -1,11 +1,11 @@
 import Card from "../Comps/Card";
 //import CountryComp from "../Comps/CountryComp";
-// import NextButton from "../Comps/NextButton";
+import NextButton from "../Comps/NextButton";
 import { useState, useEffect, useMemo } from "react";
 
 
 
-const GetQuizCountry = ({countries, index}) => {
+const GetQuizCountry = ({countries}) => {
 
     // let newCountries = countries.sort(() => 0.5 - Math.random());
     // newCountries = countries.slice(0,20);
@@ -39,20 +39,24 @@ const GetQuizCountry = ({countries, index}) => {
         setCountry(countries[index])
     }, [])
 
-    // const increaseIndex = () => {
-    //     if (index < 19){
-    //         index++
-    //         setCountry(countries[index])
-    //         console.log(index)
-            
-    //     }
-    // }
-    
+    const increaseIndex = () => {
+        if (index < 19){
+            setIndex(index+1)
+            setCountry(countries[index])
+            console.log(index)
+        }
+    }
+
+    const [index, setIndex] = useState(0);
+    useEffect(() => {
+        setIndex(index+1);
+    }, [])
+
     return (
         countries ?
         <>
         <Card country={country} />
-        {/* <NextButton onClick={increaseIndex}/> */}
+        <NextButton onClick={increaseIndex}/>
         </>
         
         :
