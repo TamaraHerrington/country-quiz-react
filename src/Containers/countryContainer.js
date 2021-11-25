@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import GetQuizCountry from "./quizCountryContainer";
 
+
 const CountryContainer = () => {
     const [countries, setCountries] = useState(null)
 
@@ -10,9 +11,11 @@ const CountryContainer = () => {
         .then(response => setCountries(response.data))
     }, []);
 
+    
+
     return (
         countries ?
-        <GetQuizCountry countries={countries} />
+        <GetQuizCountry countries={countries}/>
         :
         <p>loading...</p>
     )

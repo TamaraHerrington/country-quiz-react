@@ -1,10 +1,10 @@
 import Card from "./Card";
 
 const CountryComp =(props)=>{
+    console.log(props.countries)
+    const country = props.countries[props.index]
     return(
-        <div>
-            {props.countries.map(country=><Card name = {country.name.common}/>)}
-        </div>
+        <Card name={country.name.common} />
     );
 }
 

@@ -1,7 +1,9 @@
 const Card =(props)=>{
+    const country = props.country
+    console.log(country)
     return(
         <div>
-            <p>{props.name}</p>
+            <p>{country.name.common}</p>
         </div>
     )
 }
