@@ -1,11 +1,11 @@
 import Card from "../Comps/Card";
-import CountryComp from "../Comps/CountryComp";
-import NextButton from "../Comps/NextButton";
+//import CountryComp from "../Comps/CountryComp";
+// import NextButton from "../Comps/NextButton";
 import { useState, useEffect, useMemo } from "react";
 
 
 
-const GetQuizCountry = ({countries , index}) => {
+const GetQuizCountry = ({countries, index}) => {
 
     // let newCountries = countries.sort(() => 0.5 - Math.random());
     // newCountries = countries.slice(0,20);
@@ -26,31 +26,33 @@ const GetQuizCountry = ({countries , index}) => {
     //     }
     // }
 
-    countries = countries.sort(() => 0.5 - Math.random());
-    countries = countries.slice(0,20);
-    const newCountries = useMemo(() => [...countries]);
-    index = 0;
-    const initialState = newCountries[0];
-    const[country, setCountry] = useState(initialState);
+    // const newCountries = countries.sort(() => 0.5 - Math.random()).slice(0,20);
+    // //countries = countries.slice(0,20);
+    // //const newCountries = useMemo(() => [...countries]);
+    // let index = 0;
+    // const initialState = newCountries[0];
+    
+    const[country, setCountry] = useState(countries[0]);
+    console.log(countries)
 
     useEffect(()=>{
-        setCountry(newCountries[index])
+        setCountry(countries[index])
     }, [])
 
-    const increaseIndex = () => {
-        if (index < 19){
-            index++
-            setCountry(newCountries[index])
-            console.log(index)
-        }
-    }
+    // const increaseIndex = () => {
+    //     if (index < 19){
+    //         index++
+    //         setCountry(countries[index])
+    //         console.log(index)
+            
+    //     }
+    // }
     
     return (
         countries ?
         <>
-        {/* <CountryComp countries={newCountries} index={index} /> */}
         <Card country={country} />
-        <NextButton onClick={increaseIndex}/>
+        {/* <NextButton onClick={increaseIndex}/> */}
         </>
         
         :
