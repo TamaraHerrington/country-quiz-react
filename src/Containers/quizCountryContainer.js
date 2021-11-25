@@ -3,7 +3,8 @@ import CountryComp from "../Comps/CountryComp";
 import NextButton from "../Comps/NextButton";
 import { useState, useEffect, useMemo } from "react";
 import BackButton from "../Comps/BackButton";
-import Hint from "./Hint.js";
+import Hint from "../Comps/Hint.js";
+import HintZero from "../Comps/HintZero";
 
 
 
@@ -87,6 +88,7 @@ const GetQuizCountry = ({countries , index}) => {
         <Card country={country} />
         <NextButton onClick={increaseIndex}/>
         <BackButton onClick={decreaseIndex}/>
+        {/* <HintZero hintVisible={HintZero}/> */}
         <Hint onClick={increaseHint}/>
         </>
 

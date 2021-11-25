@@ -1,11 +1,12 @@
-const Hint = () => {
-    const handleClick = () => {
-        onClick();
-    }
-
+const HintZero = (props) => {
     return (
+        props.hintVisible ? 
         <image src= {country.flags.png}/>
+        :
+        <> </>
     )
 }
 
-export default Hint;
+export default HintZero;
+
+//return props.hintVisible ? <img /> : <></>
